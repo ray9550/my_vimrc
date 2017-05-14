@@ -1,4 +1,4 @@
-ï»¿set nocompatible
+set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
@@ -57,8 +57,10 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'mattn/emmet-vim'
+Plugin 'Shougo/neocomplete.vim'
 
-" Brief help  -- æ­¤å¤„åé¢éƒ½æ˜¯vundleçš„ä½¿ç”¨å‘½ä»¤
+" Brief help  -- ´Ë´¦ºóÃæ¶¼ÊÇvundleµÄÊ¹ÓÃÃüÁî
 " :BundleList          - list configured bundles
 " :BundleInstall(!)    - install(update) bundles
 " :BundleSearch(!) foo - search(or refresh cache first) for foo
@@ -75,7 +77,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 let g:AutoPairFlyMode=1
 
-"NERDTreeå¿«æ·é”®
+"NERDTree¿ì½İ¼ü
 noremap <F2> :NERDTree  <CR>
 " NERDTree.vim
 let g:NERDTreeWinPos="left"
@@ -83,18 +85,18 @@ let g:NERDTreeWinSize=25
 let g:NERDTreeShowLineNumbers=1
 let g:neocomplcache_enable_at_startup = 1
 """
-"o æ‰“å¼€å…³é—­æ–‡ä»¶æˆ–è€…ç›®å½•
-"t åœ¨æ ‡ç­¾é¡µä¸­æ‰“å¼€
-"T åœ¨åå°æ ‡ç­¾é¡µä¸­æ‰“å¼€
-"! æ‰§è¡Œæ­¤æ–‡ä»¶
-"p åˆ°ä¸Šå±‚ç›®å½•
-"P åˆ°æ ¹ç›®å½•
-"K åˆ°ç¬¬ä¸€ä¸ªèŠ‚ç‚¹
-"J åˆ°æœ€åä¸€ä¸ªèŠ‚ç‚¹
-"u æ‰“å¼€ä¸Šå±‚ç›®å½•
-"m æ˜¾ç¤ºæ–‡ä»¶ç³»ç»Ÿèœå•ï¼ˆæ·»åŠ ã€åˆ é™¤ã€ç§»åŠ¨æ“ä½œï¼‰
-"? å¸®åŠ©
-"q å…³é—­
+"o ´ò¿ª¹Ø±ÕÎÄ¼ş»òÕßÄ¿Â¼
+"t ÔÚ±êÇ©Ò³ÖĞ´ò¿ª
+"T ÔÚºóÌ¨±êÇ©Ò³ÖĞ´ò¿ª
+"! Ö´ĞĞ´ËÎÄ¼ş
+"p µ½ÉÏ²ãÄ¿Â¼
+"P µ½¸ùÄ¿Â¼
+"K µ½µÚÒ»¸ö½Úµã
+"J µ½×îºóÒ»¸ö½Úµã
+"u ´ò¿ªÉÏ²ãÄ¿Â¼
+"m ÏÔÊ¾ÎÄ¼şÏµÍ³²Ëµ¥£¨Ìí¼Ó¡¢É¾³ı¡¢ÒÆ¶¯²Ù×÷£©
+"? °ïÖú
+"q ¹Ø±Õ
 
 " vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
@@ -110,13 +112,13 @@ set cursorcolumn
 set shiftwidth=4 softtabstop=4 tabstop=4 expandtab smarttab autoindent
 
 " Set align vertical line
-" æ˜¾ç¤ºtabå’Œç©ºæ ¼
+" ÏÔÊ¾tabºÍ¿Õ¸ñ
 set list
-" è®¾ç½®tabå’Œç©ºæ ¼æ ·å¼
+" ÉèÖÃtabºÍ¿Õ¸ñÑùÊ½
 set lcs=tab:\|\ ,nbsp:%,trail:-
-" è®¾å®šè¡Œé¦–tabä¸ºç°è‰²
+" Éè¶¨ĞĞÊ×tabÎª»ÒÉ«
 highlight LeaderTab guifg=#666666
-" åŒ¹é…è¡Œé¦–tab
+" Æ¥ÅäĞĞÊ×tab
 match LeaderTab /^\t/
 
 " split setting
@@ -130,6 +132,79 @@ nnoremap <C-H> <C-W><C-H>
 
 " Setting vim-markdown
 let g:vim_markdown_frontmatter=1
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+
+" Setting neocomplete.vim
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 set background=dark
 colorscheme molokai
@@ -140,11 +215,11 @@ set gfw=YaHei_Consolas_Hybrid:h13:cANSI
 set nu
 set clipboard+=unnamed
 
-" æˆ‘çš„çŠ¶æ€è¡Œæ˜¾ç¤ºçš„å†…å®¹ï¼ˆåŒ…æ‹¬æ–‡ä»¶ç±»å‹å’Œè§£ç ï¼‰
+" ÎÒµÄ×´Ì¬ĞĞÏÔÊ¾µÄÄÚÈİ£¨°üÀ¨ÎÄ¼şÀàĞÍºÍ½âÂë£©
 set statusline=%F%m%r%h%w\ [%{&ff}\ \|\ %Y\ \|\ %l,%v\ %p%%]
-" æ€»æ˜¯æ˜¾ç¤ºçŠ¶æ€è¡Œ
+" ×ÜÊÇÏÔÊ¾×´Ì¬ĞĞ
 set laststatus=2
-" å‘½ä»¤è¡Œï¼ˆåœ¨çŠ¶æ€è¡Œä¸‹ï¼‰çš„é«˜åº¦ï¼Œé»˜è®¤ä¸º1ï¼Œè¿™é‡Œæ˜¯2
+" ÃüÁîĞĞ£¨ÔÚ×´Ì¬ĞĞÏÂ£©µÄ¸ß¶È£¬Ä¬ÈÏÎª1£¬ÕâÀïÊÇ2
 set cmdheight=2
 
 " tags
@@ -155,6 +230,8 @@ func! CompileRun()
     exec "w"
     if &filetype == 'python'
         exec "!python %"
+    elseif &filetype == 'html'
+        exec "! firefox %"
     elseif &filetype == 'md'
         echo "No map F5 for compile."
     else
