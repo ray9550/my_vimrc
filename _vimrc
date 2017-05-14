@@ -77,7 +77,18 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 let g:AutoPairFlyMode=1
 
+<<<<<<< HEAD
 "NERDTree��ݼ�
+=======
+" Nerdcommenter
+let g:NERDSpaceDelims=1
+"<leader>cc   加注释
+"<leader>cu   解开注释
+"<leader>c<space>  加上/解开注释, 智能判断
+"<leader>cy   先复制, 再注解(p可以进行黏贴)
+
+"NERDTree快捷键
+>>>>>>> ed54a5fd22c90c14f1ee1e2973e306a15ff6434f
 noremap <F2> :NERDTree  <CR>
 " NERDTree.vim
 let g:NERDTreeWinPos="left"
@@ -223,7 +234,8 @@ set laststatus=2
 set cmdheight=2
 
 " tags
-set tags=d:\vim\ctags58\tags
+let Tlist_Ctags_Cmd = 'd:\Vim\ctags58\ctags'
+set tags=d:\Vim\ctags58\tags
 
 noremap <F5> :call CompileRun()<CR>
 func! CompileRun()
