@@ -33,6 +33,16 @@ function MyDiff()
   endif
 endfunction
 
+set encoding=utf-8
+set termencoding=utf-8
+set fileencoding=chinese
+set fileencodings=utf-8,chinese
+
+set langmenu=zh_CN.utf-8
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+language messages zh_cn.utf-8
+
 filetype off
 " Vundle setup
 set rtp+=d:\Vim\vimfiles/bundle/Vundle.vim
@@ -60,7 +70,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'mattn/emmet-vim'
 Plugin 'Shougo/neocomplete.vim'
 
-" Brief help  -- ´Ë´¦ºóÃæ¶¼ÊÇvundleµÄÊ¹ÓÃÃüÁî
+" Brief help  -- æ­¤å¤„åé¢éƒ½æ˜¯vundleçš„ä½¿ç”¨å‘½ä»¤
 " :BundleList          - list configured bundles
 " :BundleInstall(!)    - install(update) bundles
 " :BundleSearch(!) foo - search(or refresh cache first) for foo
@@ -77,37 +87,41 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 let g:AutoPairFlyMode=1
 
-<<<<<<< HEAD
-"NERDTree¿ì½İ¼ü
-=======
-" Nerdcommenter
-let g:NERDSpaceDelims=1
-"<leader>cc   åŠ æ³¨é‡Š
-"<leader>cu   è§£å¼€æ³¨é‡Š
-"<leader>c<space>  åŠ ä¸Š/è§£å¼€æ³¨é‡Š, æ™ºèƒ½åˆ¤æ–­
-"<leader>cy   å…ˆå¤åˆ¶, å†æ³¨è§£(på¯ä»¥è¿›è¡Œé»è´´)
+" NERDTreeå¿«æ·é”®
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
 
-"NERDTreeå¿«æ·é”®
->>>>>>> ed54a5fd22c90c14f1ee1e2973e306a15ff6434f
+" NERDTreeå¿«æ·é”®
 noremap <F2> :NERDTree  <CR>
-" NERDTree.vim
 let g:NERDTreeWinPos="left"
 let g:NERDTreeWinSize=25
 let g:NERDTreeShowLineNumbers=1
 let g:neocomplcache_enable_at_startup = 1
 """
-"o ´ò¿ª¹Ø±ÕÎÄ¼ş»òÕßÄ¿Â¼
-"t ÔÚ±êÇ©Ò³ÖĞ´ò¿ª
-"T ÔÚºóÌ¨±êÇ©Ò³ÖĞ´ò¿ª
-"! Ö´ĞĞ´ËÎÄ¼ş
-"p µ½ÉÏ²ãÄ¿Â¼
-"P µ½¸ùÄ¿Â¼
-"K µ½µÚÒ»¸ö½Úµã
-"J µ½×îºóÒ»¸ö½Úµã
-"u ´ò¿ªÉÏ²ãÄ¿Â¼
-"m ÏÔÊ¾ÎÄ¼şÏµÍ³²Ëµ¥£¨Ìí¼Ó¡¢É¾³ı¡¢ÒÆ¶¯²Ù×÷£©
-"? °ïÖú
-"q ¹Ø±Õ
+"o æ‰“å¼€å…³é—­æ–‡ä»¶æˆ–è€…ç›®å½•
+"t åœ¨æ ‡ç­¾é¡µä¸­æ‰“å¼€
+"T åœ¨åå°æ ‡ç­¾é¡µä¸­æ‰“å¼€
+"! æ‰§è¡Œæ­¤æ–‡ä»¶
+"p åˆ°ä¸Šå±‚ç›®å½•
+"P åˆ°æ ¹ç›®å½•
+"K åˆ°ç¬¬ä¸€ä¸ªèŠ‚ç‚¹
+"J åˆ°æœ€åä¸€ä¸ªèŠ‚ç‚¹
+"u æ‰“å¼€ä¸Šå±‚ç›®å½•
+"m æ˜¾ç¤ºæ–‡ä»¶ç³»ç»Ÿèœå•ï¼ˆæ·»åŠ ã€åˆ é™¤ã€ç§»åŠ¨æ“ä½œï¼‰
+"? å¸®åŠ©
+"q å…³é—­
 
 " vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
@@ -123,13 +137,13 @@ set cursorcolumn
 set shiftwidth=4 softtabstop=4 tabstop=4 expandtab smarttab autoindent
 
 " Set align vertical line
-" ÏÔÊ¾tabºÍ¿Õ¸ñ
+" æ˜¾ç¤ºtabå’Œç©ºæ ¼
 set list
-" ÉèÖÃtabºÍ¿Õ¸ñÑùÊ½
+" è®¾ç½®tabå’Œç©ºæ ¼æ ·å¼
 set lcs=tab:\|\ ,nbsp:%,trail:-
-" Éè¶¨ĞĞÊ×tabÎª»ÒÉ«
+" è®¾å®šè¡Œé¦–tabä¸ºç°è‰²
 highlight LeaderTab guifg=#666666
-" Æ¥ÅäĞĞÊ×tab
+" åŒ¹é…è¡Œé¦–tab
 match LeaderTab /^\t/
 
 " split setting
@@ -226,11 +240,11 @@ set gfw=YaHei_Consolas_Hybrid:h13:cANSI
 set nu
 set clipboard+=unnamed
 
-" ÎÒµÄ×´Ì¬ĞĞÏÔÊ¾µÄÄÚÈİ£¨°üÀ¨ÎÄ¼şÀàĞÍºÍ½âÂë£©
+" æˆ‘çš„çŠ¶æ€è¡Œæ˜¾ç¤ºçš„å†…å®¹ï¼ˆåŒ…æ‹¬æ–‡ä»¶ç±»å‹å’Œè§£ç ï¼‰
 set statusline=%F%m%r%h%w\ [%{&ff}\ \|\ %Y\ \|\ %l,%v\ %p%%]
-" ×ÜÊÇÏÔÊ¾×´Ì¬ĞĞ
+" æ€»æ˜¯æ˜¾ç¤ºçŠ¶æ€è¡Œ
 set laststatus=2
-" ÃüÁîĞĞ£¨ÔÚ×´Ì¬ĞĞÏÂ£©µÄ¸ß¶È£¬Ä¬ÈÏÎª1£¬ÕâÀïÊÇ2
+" å‘½ä»¤è¡Œï¼ˆåœ¨çŠ¶æ€è¡Œä¸‹ï¼‰çš„é«˜åº¦ï¼Œé»˜è®¤ä¸º1ï¼Œè¿™é‡Œæ˜¯2
 set cmdheight=2
 
 " tags
@@ -250,13 +264,3 @@ func! CompileRun()
         echo "No map F5 for compile."
     endif
 endfunc
-
-set encoding=utf-8
-set termencoding=utf-8
-set fileencoding=chinese
-set fileencodings=ucs-bom,utf-8,chinese
-
-set langmenu=zh_CN.utf-8
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
-language messages zh_cn.utf-8
