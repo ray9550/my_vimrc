@@ -7,3 +7,7 @@ git pull
 git add <file_name>  
 git commit -m "Msg"  
 git push origin master  
+
+# Update files to local:
+git fetch origin master
+git merge origin/master
