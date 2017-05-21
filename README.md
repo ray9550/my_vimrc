@@ -24,7 +24,7 @@ x  -----删除忽略文件已经对git来说不识别的文件
 d  -----删除未被添加到git的路径中的文件  
 f  -----强制运行  
 
-## Git remove dirctionary
-git rm -r --cached [dirname]
-git commit -m 'Msg'
-git push origin master
+## Git remove dirctionary  
+git rm -r --cached [dirname]  
+git commit -m 'Msg'  
+git push origin master  
