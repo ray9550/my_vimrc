@@ -54,39 +54,25 @@ Plugin 'vim-scripts/auto-pairs'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'upsuper/vim-colorschemes'
-<<<<<<< HEAD
 " Plugin 'ervandew/supertab'
-=======
-"Plugin 'ervandew/supertab'
->>>>>>> 4b18e3fc0f002354eaffbd67e8101f95be620d92
 Plugin 'tpope/vim-fireplace'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-<<<<<<< HEAD
 " Plugin 'garbas/vim-snipmate'
 " Plugin 'honza/vim-snippets'
-=======
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
->>>>>>> 4b18e3fc0f002354eaffbd67e8101f95be620d92
 Plugin 'kien/ctrlp.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'mattn/emmet-vim'
 Plugin 'Shougo/neocomplete.vim'
-<<<<<<< HEAD
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 
-" Brief help  -- ´Ë´¦ºóÃæ¶¼ÊÇvundleµÄÊ¹ÓÃÃüÁî
-=======
-
 " Brief help  -- æ­¤å¤„åŽé¢éƒ½æ˜¯vundleçš„ä½¿ç”¨å‘½ä»¤
->>>>>>> 4b18e3fc0f002354eaffbd67e8101f95be620d92
 " :BundleList          - list configured bundles
 " :BundleInstall(!)    - install(update) bundles
 " :BundleSearch(!) foo - search(or refresh cache first) for foo
@@ -103,11 +89,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 let g:AutoPairFlyMode=1
 
-<<<<<<< HEAD
-" NERD Commenter¿ì½Ý¼ü
-=======
 " NERD Commenterå¿«æ·é”®
->>>>>>> 4b18e3fc0f002354eaffbd67e8101f95be620d92
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 " Use compact syntax for prettified multi-line comments
@@ -163,31 +145,13 @@ let g:NERDTrimTrailingWhitespace = 1
 "[count]<leader>cu |NERDComUncommentLine|
 "Uncomments the selected line(s).
 
-<<<<<<< HEAD
-" NERDTree¿ì½Ý¼ü
-=======
 " NERDTreeå¿«æ·é”®
->>>>>>> 4b18e3fc0f002354eaffbd67e8101f95be620d92
 noremap <F2> :NERDTree  <CR>
 let g:NERDTreeWinPos="left"
 let g:NERDTreeWinSize=25
 let g:NERDTreeShowLineNumbers=1
 let g:neocomplcache_enable_at_startup = 1
 """
-<<<<<<< HEAD
-"o ´ò¿ª¹Ø±ÕÎÄ¼þ»òÕßÄ¿Â¼
-"t ÔÚ±êÇ©Ò³ÖÐ´ò¿ª
-"T ÔÚºóÌ¨±êÇ©Ò³ÖÐ´ò¿ª
-"! Ö´ÐÐ´ËÎÄ¼þ
-"p µ½ÉÏ²ãÄ¿Â¼
-"P µ½¸ùÄ¿Â¼
-"K µ½µÚÒ»¸ö½Úµã
-"J µ½×îºóÒ»¸ö½Úµã
-"u ´ò¿ªÉÏ²ãÄ¿Â¼
-"m ÏÔÊ¾ÎÄ¼þÏµÍ³²Ëµ¥£¨Ìí¼Ó¡¢É¾³ý¡¢ÒÆ¶¯²Ù×÷£©
-"? °ïÖú
-"q ¹Ø±Õ
-=======
 "o æ‰“å¼€å…³é—­æ–‡ä»¶æˆ–è€…ç›®å½•
 "t åœ¨æ ‡ç­¾é¡µä¸­æ‰“å¼€
 "T åœ¨åŽå°æ ‡ç­¾é¡µä¸­æ‰“å¼€
@@ -200,7 +164,7 @@ let g:neocomplcache_enable_at_startup = 1
 "m æ˜¾ç¤ºæ–‡ä»¶ç³»ç»Ÿèœå•ï¼ˆæ·»åŠ ã€åˆ é™¤ã€ç§»åŠ¨æ“ä½œï¼‰
 "? å¸®åŠ©
 "q å…³é—­
->>>>>>> 4b18e3fc0f002354eaffbd67e8101f95be620d92
+
 
 " vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
@@ -216,15 +180,6 @@ set cursorcolumn
 set shiftwidth=4 softtabstop=4 tabstop=4 expandtab smarttab autoindent
 
 " Set align vertical line
-<<<<<<< HEAD
-" ÏÔÊ¾tabºÍ¿Õ¸ñ
-set list
-" ÉèÖÃtabºÍ¿Õ¸ñÑùÊ½
-set lcs=tab:\|\ ,nbsp:%,trail:-
-" Éè¶¨ÐÐÊ×tabÎª»ÒÉ«
-highlight LeaderTab guifg=#666666
-" Æ¥ÅäÐÐÊ×tab
-=======
 " æ˜¾ç¤ºtabå’Œç©ºæ ¼
 set list
 " è®¾ç½®tabå’Œç©ºæ ¼æ ·å¼
@@ -232,7 +187,6 @@ set lcs=tab:\|\ ,nbsp:%,trail:-
 " è®¾å®šè¡Œé¦–tabä¸ºç°è‰²
 highlight LeaderTab guifg=#666666
 " åŒ¹é…è¡Œé¦–tab
->>>>>>> 4b18e3fc0f002354eaffbd67e8101f95be620d92
 match LeaderTab /^\t/
 
 " split setting
@@ -320,7 +274,6 @@ endif
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
-<<<<<<< HEAD
 " NeoSnippet Setting
 " Plugin key-mappings.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
@@ -344,9 +297,6 @@ if has('conceal')
 endif
 
 
-=======
->>>>>>> 4b18e3fc0f002354eaffbd67e8101f95be620d92
-set background=dark
 colorscheme molokai
 
 set guifont=YaHei_Consolas_Hybrid:h13:cGB2312
@@ -355,19 +305,11 @@ set gfw=YaHei_Consolas_Hybrid:h13:cANSI
 set nu
 set clipboard+=unnamed
 
-<<<<<<< HEAD
-" ÎÒµÄ×´Ì¬ÐÐÏÔÊ¾µÄÄÚÈÝ£¨°üÀ¨ÎÄ¼þÀàÐÍºÍ½âÂë£©
-set statusline=%F%m%r%h%w\ [%{&ff}\ \|\ %Y\ \|\ %l,%v\ %p%%]
-" ×ÜÊÇÏÔÊ¾×´Ì¬ÐÐ
-set laststatus=2
-" ÃüÁîÐÐ£¨ÔÚ×´Ì¬ÐÐÏÂ£©µÄ¸ß¶È£¬Ä¬ÈÏÎª1£¬ÕâÀïÊÇ2
-=======
 " æˆ‘çš„çŠ¶æ€è¡Œæ˜¾ç¤ºçš„å†…å®¹ï¼ˆåŒ…æ‹¬æ–‡ä»¶ç±»åž‹å’Œè§£ç ï¼‰
 set statusline=%F%m%r%h%w\ [%{&ff}\ \|\ %Y\ \|\ %l,%v\ %p%%]
 " æ€»æ˜¯æ˜¾ç¤ºçŠ¶æ€è¡Œ
 set laststatus=2
 " å‘½ä»¤è¡Œï¼ˆåœ¨çŠ¶æ€è¡Œä¸‹ï¼‰çš„é«˜åº¦ï¼Œé»˜è®¤ä¸º1ï¼Œè¿™é‡Œæ˜¯2
->>>>>>> 4b18e3fc0f002354eaffbd67e8101f95be620d92
 set cmdheight=2
 
 " tags
