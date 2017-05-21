@@ -12,6 +12,6 @@ git push origin master
 git fetch origin master  
 git merge origin/master  
 
-## If git remote add WRONG url:
-git remote rm origin
-git remote add origin [url]
+## If git remote add WRONG url:  
+git remote rm origin  
+git remote add origin [url]  
