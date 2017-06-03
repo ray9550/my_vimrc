@@ -71,6 +71,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
+Plugin 'motemen/git-vim'
 
 " Brief help  -- 此处后面都是vundle的使用命令
 " :BundleList          - list configured bundles
