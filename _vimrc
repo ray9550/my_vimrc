@@ -73,7 +73,7 @@ Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'motemen/git-vim'
 
-" Brief help  -- æ­¤å¤„åé¢éƒ½æ˜¯vundleçš„ä½¿ç”¨å‘½ä»¤
+" Brief help  -- ´Ë´¦ºóÃæ¶¼ÊÇvundleµÄÊ¹ÓÃÃüÁî
 " :BundleList          - list configured bundles
 " :BundleInstall(!)    - install(update) bundles
 " :BundleSearch(!) foo - search(or refresh cache first) for foo
@@ -84,13 +84,15 @@ filetype plugin indent on
 
 let g:SuperTabDefaultCompletionType="context"
 
+let g:airline_theme="molokai"
+let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
 let g:AutoPairFlyMode=1
 
-" NERD Commenterå¿«æ·é”®
+" NERD Commenter¿ì½İ¼ü
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 " Use compact syntax for prettified multi-line comments
@@ -146,25 +148,25 @@ let g:NERDTrimTrailingWhitespace = 1
 "[count]<leader>cu |NERDComUncommentLine|
 "Uncomments the selected line(s).
 
-" NERDTreeå¿«æ·é”®
+" NERDTree¿ì½İ¼ü
 noremap <F2> :NERDTree  <CR>
 let g:NERDTreeWinPos="left"
 let g:NERDTreeWinSize=25
 let g:NERDTreeShowLineNumbers=1
 let g:neocomplcache_enable_at_startup = 1
 """
-"o æ‰“å¼€å…³é—­æ–‡ä»¶æˆ–è€…ç›®å½•
-"t åœ¨æ ‡ç­¾é¡µä¸­æ‰“å¼€
-"T åœ¨åå°æ ‡ç­¾é¡µä¸­æ‰“å¼€
-"! æ‰§è¡Œæ­¤æ–‡ä»¶
-"p åˆ°ä¸Šå±‚ç›®å½•
-"P åˆ°æ ¹ç›®å½•
-"K åˆ°ç¬¬ä¸€ä¸ªèŠ‚ç‚¹
-"J åˆ°æœ€åä¸€ä¸ªèŠ‚ç‚¹
-"u æ‰“å¼€ä¸Šå±‚ç›®å½•
-"m æ˜¾ç¤ºæ–‡ä»¶ç³»ç»Ÿèœå•ï¼ˆæ·»åŠ ã€åˆ é™¤ã€ç§»åŠ¨æ“ä½œï¼‰
-"? å¸®åŠ©
-"q å…³é—­
+"o ´ò¿ª¹Ø±ÕÎÄ¼ş»òÕßÄ¿Â¼
+"t ÔÚ±êÇ©Ò³ÖĞ´ò¿ª
+"T ÔÚºóÌ¨±êÇ©Ò³ÖĞ´ò¿ª
+"! Ö´ĞĞ´ËÎÄ¼ş
+"p µ½ÉÏ²ãÄ¿Â¼
+"P µ½¸ùÄ¿Â¼
+"K µ½µÚÒ»¸ö½Úµã
+"J µ½×îºóÒ»¸ö½Úµã
+"u ´ò¿ªÉÏ²ãÄ¿Â¼
+"m ÏÔÊ¾ÎÄ¼şÏµÍ³²Ëµ¥£¨Ìí¼Ó¡¢É¾³ı¡¢ÒÆ¶¯²Ù×÷£©
+"? °ïÖú
+"q ¹Ø±Õ
 
 
 " vim-indent-guides
@@ -181,13 +183,13 @@ set cursorcolumn
 set shiftwidth=4 softtabstop=4 tabstop=4 expandtab smarttab autoindent
 
 " Set align vertical line
-" æ˜¾ç¤ºtabå’Œç©ºæ ¼
+" ÏÔÊ¾tabºÍ¿Õ¸ñ
 set list
-" è®¾ç½®tabå’Œç©ºæ ¼æ ·å¼
+" ÉèÖÃtabºÍ¿Õ¸ñÑùÊ½
 set lcs=tab:\|\ ,nbsp:%,trail:-
-" è®¾å®šè¡Œé¦–tabä¸ºç°è‰²
+" Éè¶¨ĞĞÊ×tabÎª»ÒÉ«
 highlight LeaderTab guifg=#666666
-" åŒ¹é…è¡Œé¦–tab
+" Æ¥ÅäĞĞÊ×tab
 match LeaderTab /^\t/
 
 " split setting
@@ -302,16 +304,20 @@ colorscheme molokai
 
 set guifont=YaHei_Consolas_Hybrid:h13:cGB2312
 set gfw=YaHei_Consolas_Hybrid:h13:cANSI
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
 
 set nu
 set clipboard+=unnamed
 
-" æˆ‘çš„çŠ¶æ€è¡Œæ˜¾ç¤ºçš„å†…å®¹ï¼ˆåŒ…æ‹¬æ–‡ä»¶ç±»å‹å’Œè§£ç ï¼‰
-set statusline=%F%m%r%h%w\ [%{&ff}\ \|\ %Y\ \|\ %l,%v\ %p%%]
-" æ€»æ˜¯æ˜¾ç¤ºçŠ¶æ€è¡Œ
+" ×ÜÊÇÏÔÊ¾×´Ì¬ĞĞ
 set laststatus=2
-" å‘½ä»¤è¡Œï¼ˆåœ¨çŠ¶æ€è¡Œä¸‹ï¼‰çš„é«˜åº¦ï¼Œé»˜è®¤ä¸º1ï¼Œè¿™é‡Œæ˜¯2
+" ÃüÁîĞĞ£¨ÔÚ×´Ì¬ĞĞÏÂ£©µÄ¸ß¶È£¬Ä¬ÈÏÎª1£¬ÕâÀïÊÇ2
 set cmdheight=2
+" ÎÒµÄ×´Ì¬ĞĞÏÔÊ¾µÄÄÚÈİ£¨°üÀ¨ÎÄ¼şÀàĞÍºÍ½âÂë£©
+" set statusline=%F%m%r%h%w\ [%{&ff}\ \|\ %Y\ \|\ %l,%v\ %p%%]
+" set statusline=%F%m%r%h%w\ %=[%{GitBranch()}]\ [%{&ff}\ \|\ %Y\ \|\ %l,%v\ %p%%]
 
 " tags
 let Tlist_Ctags_Cmd = 'd:\Vim\ctags58\ctags'
@@ -330,3 +336,4 @@ func! CompileRun()
         echo "No map F5 for compile."
     endif
 endfunc
+
